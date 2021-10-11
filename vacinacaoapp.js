@@ -11,8 +11,8 @@ class Utente {
         this.Nome = Nome; // Declaração de campos que identificarão os utentes
         this.NrUtente = NrUtente; 
         this.Genero = Genero;
-    toString() { 
-        return `${this.InformacaoUtente} (° ${this.#Nascimento})`;
+    /*toString() { 
+        return `${this.InformacaoUtente} (° ${this.#Nascimento})`;*/
     }
     get InformacaoUtente () { // Propriedade (método "getter") que reproduz a informação completa do Utente
         return `${this.Nome} ${this.NrUtente} ${this.Genero}`; // String template syntax (alternativa a "adição" de strings com o operador '+')
