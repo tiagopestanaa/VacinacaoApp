@@ -9,7 +9,7 @@ let td;
 
 for (const vacinacao of VacinacaoCovid19.vacinacoes.values()) { // Criar uma iteração para obter todas as consultas
     tr = document.createElement("tr"); // Criar um <tr> a inserir na <table>
-    consultas.appendChild(tr);
+    vacinacoes.appendChild(tr);
     for (const campo of Object.values(vacinacao)) { // Iterar em todos os campos de cada consulta
         td = document.createElement("td"); // E criar uma celula <td> para a linha <tr> acima criada
         td.textContent = campo instanceof Date ? `${campo.toLocaleString()}` : `${campo}`; // Converter em string e inserir na celula
