@@ -71,10 +71,9 @@ class Vacinacao {
     vacina;
     centro_vacinacao;
     data;
-    hora;
     dose;/*1ª,2ª,3ª...*/
 
-    constructor(utente, vacina, centro_vacinacao, data, hora, dose) { // Ao adicionar construtores, já não é necessário definir campos em instruções separadas
+    constructor(utente, vacina, centro_vacinacao, data, dose) { // Ao adicionar construtores, já não é necessário definir campos em instruções separadas
         this.utente = utente; // Declaração de campos que identificarão as vacinações
         this.vacina = vacina; 
         this.centro_vacinacao = centro_vacinacao;
