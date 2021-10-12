@@ -145,6 +145,6 @@ centrosvacinacao.add(centro4);
 Object.defineProperties(VacinacaoCovid19, { // Método estático para redefinir objetos existentes
     utentes: { value: utentes, writable: false }, // Evitar a alteração deste campo (o que não impede a alteração dos campos do campo)
     vacinas: { value: vacinas, writable: false },
-    centrosvacinacao: { value: centrosvacinacao, writable: false }
+    centrosvacinacao: { value: centrosvacinacao, writable: false },
     vacinacoes: { value: vacinacoes, writable: false }
 });
