@@ -15,10 +15,10 @@ class Utente {
         this.genero = genero;
     }
     toString() { 
-        return `${this.InformacaoUtente} (° ${this.#nascimento})`;
+        return `${this.InformacaoUtente}`;
     }
     get InformacaoUtente () { // Propriedade (método "getter") que reproduz a informação completa do Utente
-        return `${this.nome} ${this.nrUtente} ${this.genero}`; // String template syntax (alternativa a "adição" de strings com o operador '+')
+        return `${this.nome} nº ${this.numero}`; // String template syntax (alternativa a "adição" de strings com o operador '+')
     }
     set Nascimento(data) { // Propriedade (método "setter") que coloca um valor no campo privado (o que não foi feito no construtor)
         this.#nascimento = data; // Este campo é privado, isto é, invisível para outros objetos
@@ -44,7 +44,7 @@ class Vacina {
         return `${this.InformacaoVacina}`;
     }
     get InformacaoVacina () { // Propriedade (método "getter") que reproduz a informação completa da Vacina
-        return `${this.nome} - ${this.tipo} - ${this.eficacia} - ${this.nrAdministracoes} - ${this.intervaloEntreDoses}`; // String template syntax (alternativa a "adição" de strings com o operador '+')
+        return `${this.nome} - ${this.tipo} - ${this.eficacia} - ${this.nrAdministracoes} doses - ${this.intervaloEntreDoses} semanas de intervalo`; // String template syntax (alternativa a "adição" de strings com o operador '+')
     }
     
 }
@@ -108,10 +108,10 @@ const centro2 = new CentroVacinacao("AL-Vita – UC", "Av. Miguel Bombarda 9, 85
 const centro3 = new CentroVacinacao("CENTRO DE VACINAÇÃO – ÁGUEDA", "Avenida Dom Manuel de Almeida Trindade 3810-164 Aveiro", "Aveiro");
 const centro4 = new CentroVacinacao("CENTRO DE VACINAÇÃO – AMORA", "Rua Manuel Teixeira Gomes, n  1 – 2845-360 AMORA", "Setúbal");
 
-const vacinacao1 = new Vacinacao(ricardo, pfizer, centro1, new Date(2021, 11, 1), "08:00:00","2ª");
-const vacinacao2 = new Vacinacao(joana, moderna, centro2,new Date(2021, 11, 6), "10:30:00","2ª");
-const vacinacao3 = new Vacinacao(hugo, johnson, centro3, new Date(2021, 11, 12), "15:25:00","1ª");
-const vacinacao4 = new Vacinacao(patricia, astrazeneca, centro4, new Date(2021, 11, 25), "18:00:00","1ª");
+const vacinacao1 = new Vacinacao(ricardo, pfizer, centro1, new Date(2021, 11, 1), "08:00:00","2ª dose");
+const vacinacao2 = new Vacinacao(joana, moderna, centro2,new Date(2021, 11, 6), "10:30:00","2ª dose");
+const vacinacao3 = new Vacinacao(hugo, johnson, centro3, new Date(2021, 11, 12), "15:25:00","1ª dose");
+const vacinacao4 = new Vacinacao(patricia, astrazeneca, centro4, new Date(2021, 11, 25), "18:00:00","1ª dose");
 
 // Agregar os objetos em coleções, para facilitar a sua gestão como unidade e para facilitar a procura de certos objetos (baseado em critérios de procura)
 
