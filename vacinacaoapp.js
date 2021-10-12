@@ -79,12 +79,11 @@ class Vacinacao {
         this.vacina = vacina; 
         this.centro_vacinacao = centro_vacinacao;
         this.data = data; 
-        this.hora = hora;
         this.dose = dose; 
     }
 
     toString() { 
-        return `${this.utente} - ${this.vacina} - ${this.centro_vacinacao} - ${this.data} - ${this.hora} - ${this.dose} dose`;
+        return `${this.utente} - ${this.vacina} - ${this.centro_vacinacao} - ${this.data} - ${this.dose} dose`;
     }
 
 }
@@ -108,10 +107,10 @@ const centro2 = new CentroVacinacao("AL-Vita – UC", "Av. Miguel Bombarda 9, 85
 const centro3 = new CentroVacinacao("CENTRO DE VACINAÇÃO – ÁGUEDA", "Avenida Dom Manuel de Almeida Trindade 3810-164 Aveiro", "Aveiro");
 const centro4 = new CentroVacinacao("CENTRO DE VACINAÇÃO – AMORA", "Rua Manuel Teixeira Gomes, n  1 – 2845-360 AMORA", "Setúbal");
 
-const vacinacao1 = new Vacinacao(ricardo, pfizer, centro1, new Date(2021, 11, 1), "08:00:00","2ª dose");
-const vacinacao2 = new Vacinacao(joana, moderna, centro2,new Date(2021, 11, 6), "10:30:00","2ª dose");
-const vacinacao3 = new Vacinacao(hugo, johnson, centro3, new Date(2021, 11, 12), "15:25:00","1ª dose");
-const vacinacao4 = new Vacinacao(patricia, astrazeneca, centro4, new Date(2021, 11, 25), "18:00:00","1ª dose");
+const vacinacao1 = new Vacinacao(ricardo, pfizer, centro1, new Date(2021, 11, 1, 8,30,0),"2ª dose");
+const vacinacao2 = new Vacinacao(joana, moderna, centro2,new Date(2021, 11, 6, 16, 30, 0),"2ª dose");
+const vacinacao3 = new Vacinacao(hugo, johnson, centro3, new Date(2021, 11, 12, 12, 15, 0),"1ª dose");
+const vacinacao4 = new Vacinacao(patricia, astrazeneca, centro4, new Date(2021, 11, 25, 9, 45, 0),"1ª dose");
 
 // Agregar os objetos em coleções, para facilitar a sua gestão como unidade e para facilitar a procura de certos objetos (baseado em critérios de procura)
 
