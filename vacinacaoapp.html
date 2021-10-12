@@ -5,23 +5,41 @@
 <head>
     <meta charset="utf-8" />
     <title>Vacinação Covid-19</title>
-    <link rel="stylesheet" href="../vacinacaoapp.css" />
-    <script src="./vacinacaoapp.js"></script>
-    <link rel="icon" type="image/png" href="../glintt.png"/>
+    <link rel="stylesheet" href="./vacinacaoapp.css" />
+    <script type="module" src="./gui.js"></script> <!-- Mas exige que os ficheiros fonte são tratados como ESModules, isto é, que recorrem a "export" e "import" -->
+    <link rel="icon" type="image/png" href="../glintt.png" />
 </head>
 
 <body>
-    <img src="../glintt.png"/>
-    <p>Versão 4</p>
+    <img src="../glintt.png" />
+    <p>Versão 7</p>
     <a href="..">← Voltar</a>
-    <h6>Interface Gráfica da app da Vacinação</h6>
-    <p>Adição de funcionalidade às classes, com métodos e métodos construtores (para atribuir valores iniciais aos campos)</p>
-    <ul>
-        <li>class Utente</li>
-        <li>class Vacina</li>
-		<li>class Centro_Vacinacao</li>
-		<li>class Vacinacao</li>
-    </ul>
+
+    <h6>Interface Gráfica da app de Vacinação Covid-19</h6>
+    <section>
+        <h5>Plano de Vacinação Covid-19</h5>
+        <table>
+            <thead>
+                <th>Utente</th>
+                <th>Vacina</th>
+                <th>Centro Vacinação</th>
+                <th>Data</th>
+            </thead>
+            <tbody id="vacinacoes">
+                <!-- Será preechido por JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <h6>Descrição</h6>
+    <p>1a versão da app que visualiza os objetos da app na GUI, recorrendo à DOM API</p>
+    <div>
+        <p>A DOM API permite manipular a árvore de objetos da propriá página HTML</p>
+        <ul>
+            <li>Para evitar muito código fonte em poucos ficheiros, cria-se um ficheiro fonte separadp, com apenas código fonte parar gerir a GUI</li>
+            <li>Redefinindo o &lt;script type="module"> &lt;/script> (o que por predefinição pospõe a execução do script até a página for completa)</li>
+        </ul>
+    </div>
 </body>
 
 </html>

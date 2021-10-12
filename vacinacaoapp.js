@@ -1,4 +1,4 @@
-const VacinacaoCovid19 = { // Declarar uma constante e atribuir-lhe valores iniciais, p.ex. um nome
+export const VacinacaoCovid19 = { // Declarar uma constante e atribuir-lhe valores iniciais, p.ex. um nome
     nome: "Plano Vacinação Covid-19"
 }; // Ao ser mais do que um simples string constante, posteriormente pode-se acrescentar campos, construindo assim o "Object Tree" da Vacinação Covid-19
 
