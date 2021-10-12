@@ -91,10 +91,10 @@ class Vacinacao {
 
 // Simular a existência de muitos utentes, vacinas, alguns centros de vacinação e simular o registo de vacinações
 
-const ricardo = new Paciente("Ricardo Oliveira", "123456", "M",); // Instanciações da classe Paciente; na constante guardamos a referência ao novo objeto na memória
-const joana = new Paciente("Joana Silva", "654321", "F"); // "new" invocará o construtor ao qual passamos argumentos, que serão guardados nos campos do objeto
-const hugo = new Paciente("Hugo Vieira", "963258", "M");
-const patricia = new Paciente("Patrícia Ferraz", "741258", "F");
+const ricardo = new Utente("Ricardo Oliveira", "123456", "M",); // Instanciações da classe Paciente; na constante guardamos a referência ao novo objeto na memória
+const joana = new Utente("Joana Silva", "654321", "F"); // "new" invocará o construtor ao qual passamos argumentos, que serão guardados nos campos do objeto
+const hugo = new Utente("Hugo Vieira", "963258", "M");
+const patricia = new Utente("Patrícia Ferraz", "741258", "F");
 ricardo.nascimento = "14/5/1989"; // Não obrigado pelos parâmetros do construtor, acrescentará-se a data de nascimento posteriormente, quando conhecida
 joana.nascimento = "26/9/2011";
 
