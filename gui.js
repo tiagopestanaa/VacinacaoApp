@@ -1,6 +1,6 @@
 // NOTA INICIAL: este ficheiro fonte define a interação com a interface gráfica (GUI) da app; o "business object" da app está em vacinacaoapp.js
 
-import { VacinacaoCovid19 } from "./vacinacaoapp"; // Refereri a um objeto declarado como exportado naquele outro ficheiro
+import { VacinacaoCovid19 } from "./vacinacaoapp.js"; // Refereri a um objeto declarado como exportado naquele outro ficheiro
 
 const vacinacoes = document.getElementById("vacinacoes"); // Uma <table> no HTML
 
