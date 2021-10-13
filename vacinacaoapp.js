@@ -14,8 +14,9 @@ export class Utente {
         this.numero = numero; 
         this.genero = genero;
     }
-    toString() { 
-        return `${this.InformacaoUtente}`;
+    toString() {
+        const idade = this.idade ? `(${this.idade} anos)` : "";
+        return `${this.InformacaoUtente} ${idade}`;
     }
     get InformacaoUtente () { // Propriedade (método "getter") que reproduz a informação completa do Utente
         return `${this.nome} nº ${this.numero}`; // String template syntax (alternativa a "adição" de strings com o operador '+')
