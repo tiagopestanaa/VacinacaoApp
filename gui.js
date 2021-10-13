@@ -1,6 +1,6 @@
 // NOTA INICIAL: este ficheiro fonte define a interação com a interface gráfica (GUI) da app; o "business object" da app está em vacinacaoapp.js
 
-import { VacinacaoCovid19 } from "./vacinacaoapp.js"; // Refereri a um objeto declarado como exportado naquele outro ficheiro
+import { VacinacaoCovid19, Utente } from "./vacinacaoapp.js"; // Refereri a um objeto declarado como exportado naquele outro ficheiro
 
 const vacinacoes = document.getElementById("vacinacoes"); // Uma <table> no HTML
 
@@ -16,3 +16,54 @@ for (const vacinacao of VacinacaoCovid19.vacinacoes.values()) { // Criar uma ite
         tr.appendChild(td);
     }
 }
+
+let option;
+let select = document.getElementById("vacinacao").utente; // Um <select> no formulário com id="vacinacao"
+
+for (const utente of VacinacaoCovid19.utentes.keys()) { // Criar uma iteração para visualizar todos os numeros dos utentes
+    option = document.createElement("option");
+    option.setAttribute("value", utente);
+    option.textContent = utente;
+    select.appendChild(option);
+}
+
+select = document.getElementById("vacinacao").vacina; // Um <select> no formulário com id="vacina"
+
+for (const vacina of VacinacaoCovid19.vacinas) {
+    option = document.createElement("option");
+    option.setAttribute("value", vacina.nome);
+    option.textContent = vacina.nome;
+    select.appendChild(option);
+}
+
+select = document.getElementById("vacinacao").centro; // Um <select> no formulário com id="centro"
+
+for (const centro of VacinacaoCovid19.centrosvacinacao) {
+    option = document.createElement("option");
+    option.setAttribute("value", centro.nome);
+    option.textContent = centro.nome;
+    select.appendChild(option);
+}
+
+let formulário = document.getElementById("utente");
+formulário.addEventListener("submit", criarUtente); // Aquando de registo de "listeners" (também chamados "handlers" ou "delegates"), é preciso nomear o evento e fornecer o nome da função a invocar
+
+function criarUtente(submissão) { // Este é um método "callback, isto é, será invocado pelo navegador (e não pelo nosso código fonte)
+    const formulário = submissão.target;
+    submissão.preventDefault(); // Evitar que o página recarregue, o comportamento padrão aquando de submissão de formulários
+    // Opcionalmente validar se os valores são conforme o que a app requer
+    const utente = new Utente(formulário.nome.value, formulário.apelido.value, formulário.email.value);
+    if (formulário.nascimento.value.length > 0)
+        utente.nascimento = formulário.nascimento.value;
+        VacinacaoCovid19.utentes.set(utente.numero, utente);
+}
+
+formulário = document.getElementById("vacinacao");
+formulário.addEventListener("submit", criarVacinacao);
+
+function criarVacinacao(submissão) {
+    const formulário = submissão.target;
+    submissão.preventDefault();
+    VacinacaoCovid19.registarVacinacao(formulário.utente.value, formulário.vacina.value, formulário.centro.value, formulário.dose.value, new Date(formulário.data.value)); // A avaliação dos dados recebidos será feito no método invocado (porque os dados do formulário são apenas strings)
+}
+

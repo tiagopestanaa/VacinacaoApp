@@ -3,7 +3,7 @@ export const VacinacaoCovid19 = { // Declarar uma constante e atribuir-lhe valor
 }; // Ao ser mais do que um simples string constante, posteriormente pode-se acrescentar campos, construindo assim o "Object Tree" da Vacinação Covid-19
 
  // Definir tipos (classes) de objetos que a app gerirá ("type of objects")
-class Utente {
+export class Utente {
     nome;
     numero;
     genero;
@@ -20,8 +20,16 @@ class Utente {
     get InformacaoUtente () { // Propriedade (método "getter") que reproduz a informação completa do Utente
         return `${this.nome} nº ${this.numero}`; // String template syntax (alternativa a "adição" de strings com o operador '+')
     }
-    set Nascimento(data) { // Propriedade (método "setter") que coloca um valor no campo privado (o que não foi feito no construtor)
-        this.#nascimento = data; // Este campo é privado, isto é, invisível para outros objetos
+    
+    get idade() {
+        return this.#nascimento ? new Date().getYear() - this.#nascimento.getYear() : undefined;
+    }
+    set nascimento(data) { // Propriedade (método "setter") que coloca um valor no campo privado (o que não foi feito no construtor)
+        if (data.indexOf("/") > 0) {
+            const [dia, mês, ano] = data.split("/"); // Formato recebido pode ser na forma 4/7/2021 ou 2021-7-4 (quando provém de um formulário HTML)
+            this.#nascimento = new Date(ano, mês, dia); // Este campo é privado, isto é, invisível para outros objetos
+        } else
+            this.#nascimento = new Date(data); // P.ex. 2021-7-4, comportamento padrão do construtor
     }
 }
 
@@ -146,3 +154,7 @@ Object.defineProperties(VacinacaoCovid19, { // Método estático para redefinir 
     centrosvacinacao: { value: centrosvacinacao, writable: false },
     vacinacoes: { value: vacinacoes, writable: false }
 });
+
+VacinacaoCovid19.registarVacinacao = function(utenteNumero, vacinaNome, centroNome,dose, data) {
+    console.log(`A registar uma vacinação para ${utenteNumero} com a vacina ${vacinaNome} no centro ${centroNome} em ${data.toLocaleDateString()} - ${dose} dose`);
+}

@@ -13,7 +13,7 @@
 
 <body>
     <img src="../vacinacaocovid19.jpg" />
-    <p>Versão 7</p>
+    <p>Versão 8</p>
     <a href="..">← Voltar</a>
 
     <h6>Interface Gráfica da app de Vacinação Covid-19</h6>
@@ -32,15 +32,59 @@
         </table>
     </section>
 
+    <section>
+        <div>
+            <h5>Novo Utente</h5>
+            <form id="utente">
+                <label><input name="mome" type="text" placeholder="Nome do Utente" minlength="10" maxlength="50" required /> Nome</label>
+                <label><input name="numero" type="text" placeholder="Número do Utente" minlength="6" maxlength="6" required /> Nº</label>
+                <label><input name="genero" type="text" placeholder="Género" minlength="1" maxlength="1" required /> Género (M/F)</label>
+                <label><input name="nascimento" type="date" placeholder="Data de nascimento" /> Nascimento (opcional)</label>
+                <button type="submit">Criar</button>
+            </form>
+        </div>
+        <div>
+            <h5>Nova Vacinação</h5>
+            <form id="vacinacao">
+                <label>
+                    <select name="utente" required>
+                        <!-- Preenchido por JavaScript-->
+                    </select> Utente
+                </label>
+                <label>
+                    <select name="vacina" required>
+                        <!-- Preenchido por JavaScript-->
+                    </select> Vacina
+                </label>
+                <label>
+                    <label>
+                        <select name="centro" required>
+                            <!-- Preenchido por JavaScript-->
+                        </select> Centro Vacinação
+                    </label>
+                    <label>
+                    <input name="data" type="date" placeholder="Data pretendida da vacinação" required /> Data da Vacinação
+                </label>
+                <label>
+                    <input name="dose" type="text" placeholder="Dose da vacinação" required /> Dose da Vacinação (1ª,2ª..)
+                </label>
+                <button type="submit">Criar</button>
+            </form>
+        </div>
+    </section>
+
     <h6>Descrição</h6>
-    <p>1a versão da app que visualiza os objetos da app na GUI, recorrendo à DOM API</p>
+    <p>Possibilidade de criação de novos objetos na GUI, definindo-os em formulários na página</p>
     <div>
-        <p>A DOM API permite manipular a árvore de objetos da propriá página HTML</p>
+        <p>Os dados dos formulários terão de ser convertidos em valores adaptados ao que a app quer receber</p>
         <ul>
-            <li>Para evitar muito código fonte em poucos ficheiros, cria-se um ficheiro fonte separadp, com apenas código fonte parar gerir a GUI</li>
-            <li>Redefinindo o &lt;script type="module"> &lt;/script> (o que por predefinição pospõe a execução do script até a página for completa)</li>
+            <li>Formulários definem todos os seus campos como strings</li>
+            <li>Em formulários não existe o conceito de classes, isto é, são apenas conjuntos de strings</li>
         </ul>
     </div>
+    <p>Nota: esta versão não adapta a GUI ao vivo, isto é, quando há alterações no "business object". Esta versão serve para demonstrar o uso de eventos.</p>
+
+
 </body>
 
 </html>
