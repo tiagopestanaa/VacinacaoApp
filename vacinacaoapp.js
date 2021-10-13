@@ -159,3 +159,12 @@ Object.defineProperties(VacinacaoCovid19, { // Método estático para redefinir 
 VacinacaoCovid19.registarVacinacao = function(utenteNumero, vacinaNome, centroNome,dose, data) {
     console.log(`A registar uma vacinação para ${utenteNumero} com a vacina ${vacinaNome} no centro ${centroNome} em ${data.toLocaleDateString()} - ${dose} dose`);
 }
+
+const delegados = new Map(); // Delegados são métodos que querem ser invocados aquando de eventos.
+delegados.set("Novo utente", []); // Coleção de delegados para o evento "Novo utente"
+delegados.set("Nova vacinação", []); // Coleção de delegados para o evento "Nova vacinacao"
+
+//VacinacaoCovid19.registarDelegado = function (evento, delegado) {
+    VacinacaoCovid19.addEventListener = function (evento, listener) {
+    delegados.get(evento).push(listener);
+}

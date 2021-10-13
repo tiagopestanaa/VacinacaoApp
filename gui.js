@@ -67,3 +67,56 @@ function criarVacinacao(submissão) {
     VacinacaoCovid19.registarVacinacao(formulário.utente.value, formulário.vacina.value, formulário.centro.value, formulário.dose.value, new Date(formulário.data.value)); // A avaliação dos dados recebidos será feito no método invocado (porque os dados do formulário são apenas strings)
 }
 
+VacinacaoCovid19.addEventListener("Novo Utente", refrescarUtentes);
+VacinacaoCovid19.addEventListener("Novo Utente", informar);
+VacinacaoCovid19.addEventListener("Nova Vacinação", refrescarVacinacoes);
+VacinacaoCovid19.addEventListener("Nova Vacinação", informar);
+
+function refrescarUtentes() {
+    const select = document.getElementById("vacinacao").utente; // Um <select> no formulário com id="vacinacao"
+    while (select.firstChild)
+        select.removeChild(select.firstChild); // Remover para poder reencher
+    let option;
+    for (const utente of VacinacaoCovid19.utentes.keys()) { // Criar uma iteração para visualizar todos os numeros dos utentes
+        option = document.createElement("option");
+        option.setAttribute("value", utente);
+        option.textContent = utente;
+        select.appendChild(option);
+    }
+}
+
+function refrescarVacinacoes() {
+    const vacinacoes = document.getElementById("vacinacoes"); // Uma <table> no HTML
+    while (vacinacoes.firstChild)
+        vacinacoes.removeChild(vacinacoes.firstChild); // Limpar antes de encher de novo
+    let tr; // Referirão a novos elementos HTML a inserir na página
+    let td;
+    for (const vacinacao of VacinacaoCovid19.vacinacoes.values()) { // Criar uma iteração para obter todas as vacinações
+        tr = document.createElement("tr"); // Criar um <tr> a inserir na <table>
+        vacinacoes.appendChild(tr);
+        for (const campo of Object.values(vacinacao)) { // Iterar em todos os campos de cada vacinação
+            td = document.createElement("td"); // E criar uma celula <td> para a linha <tr> acima criada
+            td.textContent = campo instanceof Date ? `${campo.toLocaleString()}` : `${campo}`; // Converter em string e inserir na celula
+            tr.appendChild(td);
+        }
+    }
+
+}
+
+function informar(evento) {
+    const resultado = document.getElementById("resultado");
+    resultado.innerText = evento;
+    resultado.parentNode.classList.toggle("resultado");
+    setTimeout(() => {
+        resultado.parentNode.classList.toggle("resultado");
+    }, 5000);
+    formulário = document.getElementById("vacinacao");
+    formulário.utente.selectedIndex = formulário.utente.length - 1;
+}
+
+refrescarUtentes(); // Encher a lista de utentes existentes inicialmente
+refrescarVacinacoes(); // Encher a tabela das vacinações existentes inicialmente
+
+class Evento {
+    mensagem;
+}
